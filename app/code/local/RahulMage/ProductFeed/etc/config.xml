@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <RahulMage_ProductFeed>
+      <version>0.1.0</version>
+    </RahulMage_ProductFeed>
+  </modules>
+  <global>
+    <helpers>
+      <productfeed>
+        <class>RahulMage_ProductFeed_Helper</class>
+      </productfeed>
+    </helpers>
+	<models>
+	  <productfeed>
+		<class>RahulMage_ProductFeed_Model</class>
+		<resourceModel>productfeed_mysql4</resourceModel>
+	  </productfeed>
+	</models>
+  </global>    
+    <crontab>
+        <jobs>            
+			<productfeed_getgooglexmlfeed>
+                <schedule><cron_expr>*/15 * * * *</cron_expr></schedule>
+                <run><model>productfeed/cron::getGoogleXMLFeed</model></run>
+            </productfeed_getgooglexmlfeed>
+        </jobs>
+    </crontab>
+</config> 
